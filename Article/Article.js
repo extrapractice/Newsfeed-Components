@@ -120,8 +120,75 @@ function componentCreator(title, date, p1, p2, p3) {
 	para1.textContent = p1;
 	para2.textContent = p2;
 	para3.textContent = p3;
-	expandSpan.textContent = 'Click To Expand';
+	expandSpan.innerText = 'Click To Expand';
+
+	expandSpan.addEventListener('click', (e) => {
+		article.classList.toggle('article-open');
+		if (expandSpan.innerHTML != 'Close') {
+			expandSpan.innerText = 'Close';
+		} else {
+			expandSpan.innerText = 'Click To Expand';
+		}
+	});
+	return article;
 }
+data.map((article) => {
+	let articleToAppend = componentCreator(
+		article.title,
+		article.date,
+		article.firstParagraph,
+		article.secondParagraph,
+		article.thirdParagraph,
+	);
+	return articles.appendChild(articleToAppend);
+});
+
+const additionalArticles = [
+	{
+		title: 'My Added Article',
+		date: 'December 10, 2019',
+		firstParagraph:
+			'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas quis congue arcu, ut consectetur justo. Vestibulum id orci in metus dapibus tincidunt vitae sed ligula. Nam vulputate sapien diam, quis ullamcorper erat dignissim non. Pellentesque pellentesque metus sed pharetra mattis. Nulla vel ipsum sed enim ultricies auctor. Mauris nisi felis, interdum quis augue eget, fermentum dictum nunc. Nunc urna odio, tincidunt sed lectus ac, euismod elementum magna. Vivamus eu placerat est, nec porttitor sem. Proin vel sem magna. Interdum et malesuada fames ac ante ipsum primis in faucibus.',
+		secondParagraph:
+			'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas quis congue arcu, ut consectetur justo. Vestibulum id orci in metus dapibus tincidunt vitae sed ligula. Nam vulputate sapien diam, quis ullamcorper erat dignissim non. Pellentesque pellentesque metus sed pharetra mattis. Nulla vel ipsum sed enim ultricies auctor. Mauris nisi felis, interdum quis augue eget, fermentum dictum nunc. Nunc urna odio, tincidunt sed lectus ac, euismod elementum magna. Vivamus eu placerat est, nec porttitor sem. Proin vel sem magna. Interdum et malesuada fames ac ante ipsum primis in faucibus.',
+		thirdParagraph:
+			'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas quis congue arcu, ut consectetur justo. Vestibulum id orci in metus dapibus tincidunt vitae sed ligula. Nam vulputate sapien diam, quis ullamcorper erat dignissim non. Pellentesque pellentesque metus sed pharetra mattis. Nulla vel ipsum sed enim ultricies auctor. Mauris nisi felis, interdum quis augue eget, fermentum dictum nunc. Nunc urna odio, tincidunt sed lectus ac, euismod elementum magna. Vivamus eu placerat est, nec porttitor sem. Proin vel sem magna. Interdum et malesuada fames ac ante ipsum primis in faucibus.',
+	},
+	{
+		title: 'My Second Article',
+		date: 'December 10, 2019',
+		firstParagraph:
+			'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas quis congue arcu, ut consectetur justo. Vestibulum id orci in metus dapibus tincidunt vitae sed ligula. Nam vulputate sapien diam, quis ullamcorper erat dignissim non. Pellentesque pellentesque metus sed pharetra mattis. Nulla vel ipsum sed enim ultricies auctor. Mauris nisi felis, interdum quis augue eget, fermentum dictum nunc. Nunc urna odio, tincidunt sed lectus ac, euismod elementum magna. Vivamus eu placerat est, nec porttitor sem. Proin vel sem magna. Interdum et malesuada fames ac ante ipsum primis in faucibus.',
+		secondParagraph:
+			'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas quis congue arcu, ut consectetur justo. Vestibulum id orci in metus dapibus tincidunt vitae sed ligula. Nam vulputate sapien diam, quis ullamcorper erat dignissim non. Pellentesque pellentesque metus sed pharetra mattis. Nulla vel ipsum sed enim ultricies auctor. Mauris nisi felis, interdum quis augue eget, fermentum dictum nunc. Nunc urna odio, tincidunt sed lectus ac, euismod elementum magna. Vivamus eu placerat est, nec porttitor sem. Proin vel sem magna. Interdum et malesuada fames ac ante ipsum primis in faucibus.',
+		thirdParagraph:
+			'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas quis congue arcu, ut consectetur justo. Vestibulum id orci in metus dapibus tincidunt vitae sed ligula. Nam vulputate sapien diam, quis ullamcorper erat dignissim non. Pellentesque pellentesque metus sed pharetra mattis. Nulla vel ipsum sed enim ultricies auctor. Mauris nisi felis, interdum quis augue eget, fermentum dictum nunc. Nunc urna odio, tincidunt sed lectus ac, euismod elementum magna. Vivamus eu placerat est, nec porttitor sem. Proin vel sem magna. Interdum et malesuada fames ac ante ipsum primis in faucibus.',
+	},
+	{
+		title: 'My Third Article',
+		date: 'December 10, 2019',
+		firstParagraph:
+			'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas quis congue arcu, ut consectetur justo. Vestibulum id orci in metus dapibus tincidunt vitae sed ligula. Nam vulputate sapien diam, quis ullamcorper erat dignissim non. Pellentesque pellentesque metus sed pharetra mattis. Nulla vel ipsum sed enim ultricies auctor. Mauris nisi felis, interdum quis augue eget, fermentum dictum nunc. Nunc urna odio, tincidunt sed lectus ac, euismod elementum magna. Vivamus eu placerat est, nec porttitor sem. Proin vel sem magna. Interdum et malesuada fames ac ante ipsum primis in faucibus.',
+		secondParagraph:
+			'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas quis congue arcu, ut consectetur justo. Vestibulum id orci in metus dapibus tincidunt vitae sed ligula. Nam vulputate sapien diam, quis ullamcorper erat dignissim non. Pellentesque pellentesque metus sed pharetra mattis. Nulla vel ipsum sed enim ultricies auctor. Mauris nisi felis, interdum quis augue eget, fermentum dictum nunc. Nunc urna odio, tincidunt sed lectus ac, euismod elementum magna. Vivamus eu placerat est, nec porttitor sem. Proin vel sem magna. Interdum et malesuada fames ac ante ipsum primis in faucibus.',
+		thirdParagraph:
+			'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas quis congue arcu, ut consectetur justo. Vestibulum id orci in metus dapibus tincidunt vitae sed ligula. Nam vulputate sapien diam, quis ullamcorper erat dignissim non. Pellentesque pellentesque metus sed pharetra mattis. Nulla vel ipsum sed enim ultricies auctor. Mauris nisi felis, interdum quis augue eget, fermentum dictum nunc. Nunc urna odio, tincidunt sed lectus ac, euismod elementum magna. Vivamus eu placerat est, nec porttitor sem. Proin vel sem magna. Interdum et malesuada fames ac ante ipsum primis in faucibus.',
+	},
+];
+additionalArticles.map((article) => {
+	let articleToAppend = componentCreator(
+		article.title,
+		article.date,
+		article.firstParagraph,
+		article.secondParagraph,
+		article.thirdParagraph,
+	);
+	return articles.appendChild(articleToAppend);
+});
+
+// data.map((a) => {
+//     return articles.appendChild(componentCreator(a.title,a.date,a.firstParagraph, a.secondParagraph, a.thirdParagraph))
+// });
 /* Step 1: Create a function that creates a component. You will want your component to look like the template below: 
   
   <div class="article">
